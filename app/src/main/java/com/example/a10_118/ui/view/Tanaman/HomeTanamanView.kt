@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowBack
@@ -41,6 +42,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.a10_118.Model.Tanaman
 import com.example.a10_118.ui.navigation.DestinasiNavigasi
 import com.example.a10_118.ui.viewmodel.Tanaman.HomeTanamanViewModel
+import com.example.a10_118.ui.viewmodel.Tanaman.HomeUiState
 import com.example.a10_118.ui.viewmodel.Tanaman.TanamanPenyediaViewModel
 
 object DestinasiTanamanHome : DestinasiNavigasi {

@@ -28,6 +28,8 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.a10_118.ui.navigation.DestinasiNavigasi
 import com.example.a10_118.ui.viewmodel.Tanaman.InsertTanamanViewModel
+import com.example.a10_118.ui.viewmodel.Tanaman.InsertUiEvent
+import com.example.a10_118.ui.viewmodel.Tanaman.InsertUiState
 import com.example.a10_118.ui.viewmodel.Tanaman.TanamanPenyediaViewModel
 import kotlinx.coroutines.launch
 

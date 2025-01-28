@@ -27,6 +27,8 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
@@ -36,6 +38,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.a10_118.Model.Tanaman
 import com.example.a10_118.ui.navigation.DestinasiNavigasi
 import com.example.a10_118.ui.viewmodel.Tanaman.DetailTanamanViewModel
+import com.example.a10_118.ui.viewmodel.Tanaman.TanamanDetailUiState
 import com.example.a10_118.ui.viewmodel.Tanaman.TanamanPenyediaViewModel
 
 object DestinasiTanamDetail : DestinasiNavigasi {

@@ -22,6 +22,12 @@ object TanamanPenyediaViewModel {
                     .container.tanamanRepository
             )
         }
+        initializer {
+            DetailTanamanViewModel(
+                aplikasiPertanian()
+                    .container.tanamanRepository
+            )
+        }
     }
 
     fun CreationExtras.aplikasiPertanian(): PertanianApplication =

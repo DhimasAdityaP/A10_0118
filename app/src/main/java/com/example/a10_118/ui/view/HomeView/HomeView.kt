@@ -1,11 +1,18 @@
 package com.example.a10_118.ui.view.HomeView
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.scaleIn
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -26,16 +33,22 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.a10_118.R
 import com.example.a10_118.ui.navigation.DestinasiNavigasi
+import kotlinx.coroutines.delay
 
 object DestinasiSplash : DestinasiNavigasi {
     override val route = "splash"
     override val titleRes = "tampilan splash"
 }
+
 @Composable
 fun Splash(
     onTanamanClick: () -> Unit,
@@ -44,82 +57,108 @@ fun Splash(
     onAktivitasPertanianClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    // State for animation control
     var isVisible by remember { mutableStateOf(false) }
 
     // Trigger animation when the view is loaded
     LaunchedEffect(Unit) {
+        delay(2000) // Delay for 2 seconds
         isVisible = true
     }
 
     Column(
         modifier = modifier
             .fillMaxSize()
-            .fillMaxWidth()
-            .background(Color(0xFFC0C0C0)) // Background color changed to silver
+            .background(
+                brush = androidx.compose.ui.graphics.Brush.verticalGradient(
+                    colors = listOf(Color(0xFF7C4DFF), Color(0xFFB388FF))
+                )
+            )
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally, // Align content to center
+        verticalArrangement = Arrangement.Center // Vertically center content
     ) {
-        // Title at the top
-        Text(
-            text = "Pengelolaan Pertanian",
-            fontSize = 30.sp,
-            fontWeight = FontWeight.Bold,
-            color = Color.Black,
+        // Drawable Image
+        Image(
+            painter = painterResource(id = R.drawable.ic_agri), // Replace with your drawable resource
+            contentDescription = "Agriculture Icon",
             modifier = Modifier
-                .padding(top = 16.dp, bottom = 16.dp) // Reduced bottom padding
-                .align(Alignment.CenterHorizontally)
+                .size(120.dp)
+                .padding(bottom = 16.dp) // Space below the image
         )
 
-        // Main content with buttons
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .fillMaxWidth()
-                .padding(18.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+        // Title
+        AnimatedVisibility(
+            visible = isVisible,
+            enter = fadeIn(animationSpec = tween(1000)) + scaleIn(animationSpec = tween(1000))
         ) {
-            // Buttons with regular design
-            RegularButton(text = "Tanaman", icon = Icons.Filled.Edit, onClick = onTanamanClick)
-            RegularButton(text = "Pekerja", icon = Icons.Filled.Person, onClick = onPekerjaClick)
-            RegularButton(text = "Catatan Panen", icon = Icons.Filled.List, onClick = onCatatanPanenClick)
-            RegularButton(text = "Aktivitas Pertanian", icon = Icons.Filled.ShoppingCart, onClick = onAktivitasPertanianClick)
+            Text(
+                text = "Pengelolaan Pertanian",
+                fontSize = 36.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color.White,
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .padding(bottom = 24.dp) // Space below the title
+            )
+        }
+
+        // Content (Buttons)
+        AnimatedVisibility(
+            visible = isVisible,
+            enter = fadeIn(animationSpec = tween(1000)) + scaleIn(animationSpec = tween(1000))
+        ) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                RegularButton(text = "Tanaman", icon = Icons.Filled.Edit, onClick = onTanamanClick)
+                RegularButton(text = "Pekerja", icon = Icons.Filled.Person, onClick = onPekerjaClick)
+                RegularButton(text = "Catatan Panen", icon = Icons.Filled.List, onClick = onCatatanPanenClick)
+                RegularButton(text = "Aktivitas Pertanian", icon = Icons.Filled.ShoppingCart, onClick = onAktivitasPertanianClick)
+            }
         }
     }
 }
 
+
 @Composable
 fun RegularButton(text: String, icon: androidx.compose.ui.graphics.vector.ImageVector, onClick: () -> Unit) {
+    val scale = animateFloatAsState(targetValue = 1f, animationSpec = tween(500))
+
     Button(
         onClick = onClick,
         colors = ButtonDefaults.buttonColors(
-            containerColor = Color(0xFF6200EE) // Regular color for the button
+            containerColor = Color.White,
+            contentColor = Color(0xFF4CAF50) // Green
         ),
-        shape = RoundedCornerShape(12.dp), // Rounded corners for rectangle
+        shape = RoundedCornerShape(16.dp),
         modifier = Modifier
-            .padding(horizontal = 12.dp, vertical = 8.dp)
-            .size(250.dp, 60.dp) // Increase width to make the button wider
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp)
+            .height(60.dp)
+            .shadow(elevation = 8.dp, shape = RoundedCornerShape(16.dp))
+            .scale(scale.value)
     ) {
         Row(
-            horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(8.dp) // Padding between icon and text
+            horizontalArrangement = Arrangement.Center,
+            modifier = Modifier.padding(horizontal = 16.dp)
         ) {
-            // Icon with regular size
             Icon(
                 imageVector = icon,
                 contentDescription = null,
                 modifier = Modifier
-                    .padding(end = 8.dp) // Padding between icon and text
-                    .size(30.dp), // Icon size
-                tint = Color.White // White icon color
+                    .size(24.dp)
+                    .padding(end = 8.dp),
+                tint = Color(0xFF4CAF50) // Green
             )
-            // Text
             Text(
                 text = text,
-                fontSize = 16.sp, // Adjust font size
+                fontSize = 18.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color.White // White text color
+                color = Color(0xFF4CAF50)
             )
         }
     }
 }
+

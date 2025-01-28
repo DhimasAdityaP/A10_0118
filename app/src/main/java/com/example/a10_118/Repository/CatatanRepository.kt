@@ -1,6 +1,7 @@
 package com.example.a10_118.Repository
 
 import com.example.a10_118.Model.CatatanPanen
+import com.example.a10_118.service.CatatanService
 import java.io.IOException
 
 interface CatatanRepository {

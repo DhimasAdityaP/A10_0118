@@ -1,6 +1,7 @@
 package com.example.a10_118.Repository
 
 import com.example.a10_118.Model.Tanaman
+import com.example.a10_118.service.TanamanService
 import okio.IOException
 
 interface TanamanRepository {

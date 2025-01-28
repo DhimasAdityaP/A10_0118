@@ -1,6 +1,7 @@
 package com.example.a10_118.Repository
 
 import com.example.a10_118.Model.AktivitasPertanian
+import com.example.a10_118.service.AktivitasService
 import java.io.IOException
 
 interface AktivitasRepository {

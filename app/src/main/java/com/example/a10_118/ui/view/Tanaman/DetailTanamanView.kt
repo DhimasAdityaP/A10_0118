@@ -32,8 +32,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.a10_118.Model.Tanaman
 import com.example.a10_118.ui.navigation.DestinasiNavigasi
+import com.example.a10_118.ui.viewmodel.Tanaman.DetailTanamanViewModel
+import com.example.a10_118.ui.viewmodel.Tanaman.TanamanPenyediaViewModel
 
 object DestinasiTanamDetail : DestinasiNavigasi {
     override val route = "tanaman detail"

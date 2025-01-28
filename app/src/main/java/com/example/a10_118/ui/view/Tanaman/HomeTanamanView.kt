@@ -37,8 +37,11 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.a10_118.Model.Tanaman
 import com.example.a10_118.ui.navigation.DestinasiNavigasi
+import com.example.a10_118.ui.viewmodel.Tanaman.HomeTanamanViewModel
+import com.example.a10_118.ui.viewmodel.Tanaman.TanamanPenyediaViewModel
 
 object DestinasiTanamanHome : DestinasiNavigasi {
     override val route = "home_tanaman"

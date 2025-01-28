@@ -6,7 +6,15 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.a10_118.ui.view.Aktivitas.DestinasiAktifitas
+import com.example.a10_118.ui.view.Aktivitas.DestinasiInsertAktivitas
+import com.example.a10_118.ui.view.Aktivitas.HomeScreenAktivitas
+import com.example.a10_118.ui.view.Catatan.DestinasiCatatan
+import com.example.a10_118.ui.view.Catatan.DestinasiInsertCatatan
+import com.example.a10_118.ui.view.Catatan.EntryCatatanScreen
+import com.example.a10_118.ui.view.Catatan.HomeScreenCatatan
 import com.example.a10_118.ui.view.HomeView.DestinasiSplash
+import com.example.a10_118.ui.view.HomeView.Splash
 import com.example.a10_118.ui.view.Pekerja.DestinasiHomePekerja
 import com.example.a10_118.ui.view.Pekerja.DestinasiInsertPekerja
 import com.example.a10_118.ui.view.Pekerja.EntryPekerjaScreen

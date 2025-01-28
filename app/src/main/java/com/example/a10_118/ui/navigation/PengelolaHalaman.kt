@@ -6,12 +6,14 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.a10_118.ui.view.HomeView.DestinasiSplash
 import com.example.a10_118.ui.view.Pekerja.DestinasiHomePekerja
 import com.example.a10_118.ui.view.Pekerja.DestinasiInsertPekerja
 import com.example.a10_118.ui.view.Pekerja.EntryPekerjaScreen
 import com.example.a10_118.ui.view.Pekerja.HomeScreenPekerja
 import com.example.a10_118.ui.view.Tanaman.DestinasiInsert
 import com.example.a10_118.ui.view.Tanaman.DestinasiTanamanHome
+import com.example.a10_118.ui.view.Tanaman.DetailTanamanView
 import com.example.a10_118.ui.view.Tanaman.EntryTanamanScreen
 import com.example.a10_118.ui.view.Tanaman.HomeScreenTanaman
 

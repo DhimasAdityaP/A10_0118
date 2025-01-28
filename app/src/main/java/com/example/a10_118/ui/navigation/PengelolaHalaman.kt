@@ -20,6 +20,7 @@ import com.example.a10_118.ui.view.Pekerja.DestinasiInsertPekerja
 import com.example.a10_118.ui.view.Pekerja.EntryPekerjaScreen
 import com.example.a10_118.ui.view.Pekerja.HomeScreenPekerja
 import com.example.a10_118.ui.view.Tanaman.DestinasiInsert
+import com.example.a10_118.ui.view.Tanaman.DestinasiTanamDetail
 import com.example.a10_118.ui.view.Tanaman.DestinasiTanamanHome
 import com.example.a10_118.ui.view.Tanaman.DetailTanamanView
 import com.example.a10_118.ui.view.Tanaman.EntryTanamanScreen
@@ -77,7 +78,7 @@ fun PengelolaHalaman(
             )
         }
         // Detail Tanaman
-        composable("detail/{id}") { backStackEntry ->
+        composable(DestinasiTanamDetail.route) { backStackEntry ->
             val idTanaman = backStackEntry.arguments?.getString("id")
             idTanaman?.let {
                 DetailTanamanView(
